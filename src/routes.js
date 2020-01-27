@@ -30,6 +30,12 @@ import EditCategory from "views/category/Edit.jsx";
 import CategoryList from "views/category/List.jsx";
 import CategoryDetail from "views/category/Detail.jsx";
 
+//product
+import CreateProduct from "views/product/Create.jsx";
+import EditProduct from "views/product/Edit.jsx";
+import ProductList from "views/product/List.jsx";
+import ProductDetail from "views/product/Detail.jsx";
+
 var routes = [
   {
     path: "/index",
@@ -38,16 +44,9 @@ var routes = [
     component: Index,
     layout: "/app"
   },
-  // {
-  //   path: "/category",
-  //   name: "Category",
-  //   icon: "ni ni-building text-orange",
-  //   component: Category,
-  //   layout: "/app"
-  // },
   {
     path: "/category/create",
-    icon: "ni ni-istanbul text-orange",
+    icon: "ni ni-planet text-blue",
     component: CreateCategory,
     layout: "/app",
     unlisted: true
@@ -73,6 +72,35 @@ var routes = [
     component: CategoryList,
     layout: "/app",
     menu: "category"
+  },
+  {
+    path: "/product/create",
+    icon: "ni ni-planet text-blue",
+    component: CreateProduct,
+    layout: "/app",
+    unlisted: true
+  },
+  {
+    path: "/product/edit/:slug",
+    icon: "ni ni-planet text-blue",
+    component: EditProduct,
+    layout: "/app",
+    unlisted: true
+  },
+  {
+    path: "/product/:slug",
+    icon: "ni ni-planet text-blue",
+    component: ProductDetail,
+    layout: "/app",
+    unlisted: true
+  },
+  {
+    path: "/Product",
+    name: "List Product",
+    icon: "ni ni-planet text-blue",
+    component: ProductList,
+    layout: "/app",
+    menu: "product"
   },
   {
     path: "/icons",
