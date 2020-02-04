@@ -22,7 +22,7 @@ import {
 
 // import "react-dropzone-uploader/dist/styles.css";
 
-class EditProduct extends React.Component {
+class EditCategory extends React.Component {
   constructor(props) {
     super(props);
 
@@ -33,7 +33,7 @@ class EditProduct extends React.Component {
   }
 
   getData() {
-    Product.get({ slug: this.props.match.params.slug }).then((result) => {
+    Category.get({ slug: this.props.match.params.slug }).then((result) => {
       this.setState({
         name: result.data.name,
         description: result.data.description
@@ -49,13 +49,13 @@ class EditProduct extends React.Component {
     e.preventDefault();
     this.setState({ isSubmitting: true, formError: "" });
     const { name, description } = this.state;
-    Product.update({
+    Category.update({
       name,
       description,
       slug: this.props.match.params.slug
     })
       .then(() => {
-        this.props.history.push("/app/product");
+        this.props.history.push("/app/Category");
         toast.success("Berhasil!");
       })
       .catch((error) => {
@@ -148,7 +148,7 @@ class EditProduct extends React.Component {
                               <Button
                                 color="danger"
                                 onClick={() =>
-                                  this.props.history.push("/app/product")
+                                  this.props.history.push("/app/Category")
                                 }
                               >
                                 Batal
@@ -176,4 +176,4 @@ class EditProduct extends React.Component {
   }
 }
 
-export default EditProduct;
+export default EditCategory;

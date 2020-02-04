@@ -31,10 +31,10 @@ class CategoryList extends FilterList {
     this.state = {
       show: false,
       data: [],
-      paging: {
-        page: params.page || 1,
-        limit: params.limit || 10
-      },
+      // paging: {
+      //   page: params.page || 1,
+      //   limit: params.limit || 10
+      // },
       isLoading: true,
       filter: {},
       alert: null,
@@ -44,7 +44,7 @@ class CategoryList extends FilterList {
     this.columns = [
       {
         name: "Nama Kategori",
-        selector: "name",
+        selector: "nama",
         compact: true,
         sortable: true
       },
@@ -120,13 +120,13 @@ class CategoryList extends FilterList {
     return Category.get({ ...this.state.paging, name }).then((result) => {
       this.setState({
         data: result.data,
-        isLoading: false,
-        paging: {
-          total: result.meta.total,
-          limit: result.meta.limit,
-          page: result.meta.page,
-          pages: result.meta.pages
-        }
+        isLoading: false
+        // paging: {
+        //   // total: result.meta.total,
+        //   limit: result.meta.limit,
+        //   page: result.meta.page,
+        //   pages: result.meta.pages
+        // }
       });
     });
   }
